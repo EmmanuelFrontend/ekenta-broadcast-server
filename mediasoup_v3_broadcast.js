@@ -367,8 +367,8 @@ const mediasoup = require("mediasoup");
 const mediasoupOptions = {
   // Worker settings
   worker: {
-    rtcMinPort: 10000,
-    rtcMaxPort: 10100,
+    rtcMinPort: 40000,
+    rtcMaxPort: 49999,
     logLevel: 'warn',
     logTags: [
       'info',
@@ -408,7 +408,7 @@ const mediasoupOptions = {
   // WebRtcTransport settings
   webRtcTransport: {
     listenIps: [
-      { ip: '0.0.0.0', announcedIp: '52.23.248.175' }
+      { ip: '172.26.4.151', announcedIp: '54.93.137.39' }
     ],
     enableUdp: true,
     enableTcp: true,
