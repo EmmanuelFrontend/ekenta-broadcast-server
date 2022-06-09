@@ -90,6 +90,7 @@
           console.error('UNKNOWN message from server:', message);
         }
       });
+      
       socket.on('newProducer', async function (message) {
         console.warn('IGNORE socket.io newProducer:', message);
       });

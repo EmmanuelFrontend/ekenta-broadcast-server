@@ -18,7 +18,7 @@
 //   npm install socket.io
 //   npm install mediasoup@3
 //   npm install mediasoup-client@3
-//   npm install browserify
+//   npm install browserify 
 // or
 //   npm install
 //
@@ -38,10 +38,10 @@ let serverOptions = {
   useHttps: false
 };
 let sslOptions = {};
-if (serverOptions.useHttps) {
-  sslOptions.key = fs.readFileSync(serverOptions.httpsKeyFile).toString();
-  sslOptions.cert = fs.readFileSync(serverOptions.httpsCertFile).toString();
-}
+// if (serverOptions.useHttps) {
+//   sslOptions.key = fs.readFileSync(serverOptions.httpsKeyFile).toString();
+//   sslOptions.cert = fs.readFileSync(serverOptions.httpsCertFile).toString();
+// }
 
 // --- prepare server ---
 const http = require("http");
@@ -67,22 +67,22 @@ else {
 }
 
 // --- file check ---
-function isFileExist(path) {
-  try {
-    fs.accessSync(path, fs.constants.R_OK);
-    //console.log('File Exist path=' + path);
-    return true;
-  }
-  catch (err) {
-    if (err.code === 'ENOENT') {
-      //console.log('File NOT Exist path=' + path);
-      return false
-    }
-  }
+// function isFileExist(path) {
+//   try {
+//     fs.accessSync(path, fs.constants.R_OK);
+//     //console.log('File Exist path=' + path);
+//     return true;
+//   }
+//   catch (err) {
+//     if (err.code === 'ENOENT') {
+//       //console.log('File NOT Exist path=' + path);
+//       return false
+//     }
+//   }
 
-  console.error('MUST NOT come here');
-  return false;
-}
+//   console.error('MUST NOT come here');
+//   return false;
+// }
 
 // --- socket.io server ---
 const io = require('socket.io')(webServer);
@@ -195,6 +195,7 @@ io.on('connection', function (socket) {
       console.log('--broadcast newProducer ---');
       socket.broadcast.emit('newProducer', { socketId: id, producerId: producer.id, kind: producer.kind });
     }
+    
   });
 
   // --- consumer ----

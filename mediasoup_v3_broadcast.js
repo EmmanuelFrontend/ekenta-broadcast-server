@@ -120,6 +120,7 @@ io.on('connection', function (socket) {
     producerSocketId = getId(socket);
     const { transport, params } = await createTransport();
     producerTransport = transport;
+
     producerTransport.observer.on('close', () => {
       if (videoProducer) {
         videoProducer.close();
@@ -131,6 +132,7 @@ io.on('connection', function (socket) {
       }
       producerTransport = null;
     });
+
     //console.log('-- createProducerTransport params:', params);
     sendResponse(params, callback);
   });
@@ -168,6 +170,7 @@ io.on('connection', function (socket) {
     socket.broadcast.emit('newProducer', { kind: kind });
   });
 
+  
   // --- consumer ----
   socket.on('createConsumerTransport', async (data, callback) => {
     console.log('-- createConsumerTransport ---');
