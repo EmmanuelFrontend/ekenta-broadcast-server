@@ -34,12 +34,12 @@
 const fs = require('fs');
 let serverOptions = {
   hostName: "localhost",
-  listenPort: 8080,
-  useHttps: false
+  listenPort: 3000,
+  useHttps: true
 };
 let sslOptions = {};
 if (serverOptions.useHttps) {
-  sslOptions.key = fs.readFileSync('./server/ssl/key.pem', 'utf-8'),
+   sslOptions.key = fs.readFileSync('./server/ssl/key.pem', 'utf-8'),
   sslOptions.cert = fs.readFileSync('./server/ssl/cert.pem', 'utf-8')
 }
 
@@ -370,8 +370,8 @@ const mediasoup = require("mediasoup");
 const mediasoupOptions = {
   // Worker settings
   worker: {
-    rtcMinPort: 10000,
-    rtcMaxPort: 10100,
+    rtcMinPort: 40000,
+    rtcMaxPort: 49999,
     logLevel: 'warn',
     logTags: [
       'info',
@@ -411,7 +411,7 @@ const mediasoupOptions = {
   // WebRtcTransport settings
   webRtcTransport: {
     listenIps: [
-      { ip: '127.0.0.1', announcedIp: null }
+      { ip: '172.26.4.151', announcedIp: '54.93.137.39' }
     ],
     enableUdp: true,
     enableTcp: true,
