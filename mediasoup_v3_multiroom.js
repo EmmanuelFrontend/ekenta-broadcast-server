@@ -34,7 +34,7 @@
 const fs = require('fs');
 let serverOptions = {
   hostName: "localhost",
-  listenPort: 8080,
+  listenPort: 3000,
   useHttps: false
 };
 let sslOptions = {};
@@ -654,7 +654,7 @@ const mediasoupOptions = {
   // WebRtcTransport settings
   webRtcTransport: {
     listenIps: [
-      { ip: '127.0.0.1', announcedIp: null }
+      { ip: '0.0.0.0', announcedIp: '52.23.248.175' }
     ],
     enableUdp: true,
     enableTcp: true,
